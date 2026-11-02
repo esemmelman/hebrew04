@@ -34,3 +34,4 @@ function render(){const q=questions[current];el('counter').textContent=`Question
 el('next').addEventListener('click',()=>{current++;if(current<questions.length){render();return;}el('counter').textContent='Practice complete';el('prompt').textContent='י ו ה';el('answers').replaceChildren();el('feedback').textContent=`You got ${correct} of ${questions.length} right. Say the vowels once more: ah, eh, ee, oh, oo.`;el('next').hidden=true;const restart=document.createElement('button');restart.textContent='Practice again';restart.onclick=()=>{current=0;correct=0;render();};el('answers').append(restart);});render();
 </script>
 </body></html>
+<style>[hidden]{display:none!important}</style>

@@ -3,17 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Meet Alef · First Hebrew</title>
-<meta name="description" content="Meet Alef, then click to hear Alef with Kamatz, Patach, and Segol.">
+<title>Meet the Letters · First Hebrew</title>
+<meta name="description" content="Meet Alef, Bet, Vet, Gimel, Daled, and Heh. Click to hear each letter and try three vowels.">
 <style>
-:root{color-scheme:light;--ink:#213d38;--paper:#f8f5ed;--green:#286457;--line:#d9dfd2;--muted:#61736a}*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;background:var(--paper);color:var(--ink);font:19px/1.6 system-ui,sans-serif;min-height:100svh}header{padding:22px 28px;font-size:16px;font-weight:700;border-bottom:1px solid var(--line)}main{max-width:900px;margin:auto;padding:32px 22px 50px;text-align:center}h1{font:normal 30px Georgia,serif;margin:12px 0 0}button{font:inherit;cursor:pointer;color:var(--ink);border:1px solid var(--line);border-radius:18px;background:#fffdf7;touch-action:manipulation}button:hover{background:#e9eddf;border-color:var(--green)}button:focus-visible{outline:3px solid #bc643e;outline-offset:6px}.hebrew{display:block;font-family:"Times New Roman",serif;font-weight:normal;line-height:1.5}#alef{border:0;background:transparent;padding:0 45px;display:block;margin:0 auto}#alef .hebrew{font-size:clamp(170px,28vw,250px)}#invitation{margin:0 auto 24px;max-width:570px}#message{max-width:620px;margin:20px auto;font-size:clamp(21px,3vw,27px)}.choices{display:flex;gap:14px;justify-content:center}.choices button{padding:10px 36px;border-radius:9px}.choices #yes{background:var(--green);color:white;border-color:var(--green)}.choices #yes:hover{background:#194b40}#vowels{margin-top:30px}#vowels h2{font:normal 30px Georgia,serif}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}.vowel{padding:10px 12px 24px;min-width:0;transition:background .15s,transform .15s}.vowel .hebrew{font-size:clamp(100px,17vw,165px);padding-bottom:12px}.name{display:block;font-weight:650}.sound{display:block;font-size:16px;color:var(--muted);margin-top:4px}.playing{background:#dce9d4;transform:translateY(-4px)}#status{min-height:32px;margin:24px 0 0;color:var(--green)}.hint{font-size:15px;color:var(--muted)}#reset{margin-top:18px;padding:7px 18px;border-radius:8px;font-size:15px;background:transparent}@media(max-width:480px){main{padding:25px 14px}.cards{gap:8px}.vowel{padding:10px 4px 20px}.vowel .hebrew{font-size:100px}.name{font-size:16px}.sound{font-size:14px}}
+:root{color-scheme:light;--ink:#213d38;--paper:#f8f5ed;--green:#286457;--line:#d9dfd2;--muted:#61736a}*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;background:var(--paper);color:var(--ink);font:19px/1.6 system-ui,sans-serif;min-height:100svh}header{padding:22px 28px;font-size:16px;font-weight:700;border-bottom:1px solid var(--line)}main{max-width:900px;margin:auto;padding:32px 22px 50px;text-align:center}h1{font:normal 30px Georgia,serif;margin:12px 0 0}button{font:inherit;cursor:pointer;color:var(--ink);border:1px solid var(--line);border-radius:18px;background:#fffdf7;touch-action:manipulation}button:hover{background:#e9eddf;border-color:var(--green)}button:focus-visible{outline:3px solid #bc643e;outline-offset:6px}.hebrew{display:block;font-family:"Times New Roman",serif;font-weight:normal;line-height:1.5}#letter{border:0;background:transparent;padding:0 45px;display:block;margin:0 auto}#letter .hebrew{font-size:clamp(170px,28vw,250px)}#invitation{margin:0 auto 24px;max-width:570px}#message{max-width:620px;margin:20px auto;font-size:clamp(21px,3vw,27px)}.choices{display:flex;gap:14px;justify-content:center}.choices button{padding:10px 36px;border-radius:9px}.choices #yes{background:var(--green);color:white;border-color:var(--green)}.choices #yes:hover{background:#194b40}#vowels{margin-top:30px}#vowels h2{font:normal 30px Georgia,serif}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}.vowel{padding:10px 12px 24px;min-width:0;transition:background .15s,transform .15s}.vowel .hebrew{font-size:clamp(100px,17vw,165px);padding-bottom:12px}.name{display:block;font-weight:650}.sound{display:block;font-size:16px;color:var(--muted);margin-top:4px}.playing{background:#dce9d4;transform:translateY(-4px)}#status{min-height:32px;margin:24px 0 0;color:var(--green)}.hint{font-size:15px;color:var(--muted)}#reset{margin-top:18px;padding:7px 18px;border-radius:8px;font-size:15px;background:transparent}@media(max-width:480px){main{padding:25px 14px}.cards{gap:8px}.vowel{padding:10px 4px 20px}.vowel .hebrew{font-size:100px}.name{font-size:16px}.sound{font-size:14px}}
+
+.letter-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:0 auto 28px}.letter-nav button{font-size:16px;padding:8px 16px;border-radius:10px}.letter-nav button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:white}.nav-letter{font:normal 27px "Times New Roman",serif;margin-right:7px}#letter.playing{background:#e9eddf;border-radius:25px}#opening-status{min-height:28px;margin:10px auto;color:var(--green);font-size:16px}
 </style>
 </head>
 <body>
 <header>First Hebrew</header>
 <main>
-<h1>Meet Alef</h1>
-<button id="alef" aria-label="Alef. Click me to hear what I sound like." aria-controls="question" aria-expanded="false"><span class="hebrew" lang="he" dir="rtl">א</span></button>
+<nav class="letter-nav" aria-label="Choose a Hebrew letter">
+<button data-letter="alef" aria-pressed="true"><span class="nav-letter" lang="he">א</span>Alef</button>
+<button data-letter="bet" aria-pressed="false"><span class="nav-letter" lang="he">בּ</span>Bet</button>
+<button data-letter="vet" aria-pressed="false"><span class="nav-letter" lang="he">ב</span>Vet</button>
+<button data-letter="gimel" aria-pressed="false"><span class="nav-letter" lang="he">ג</span>Gimel</button>
+<button data-letter="daled" aria-pressed="false"><span class="nav-letter" lang="he">ד</span>Daled</button>
+<button data-letter="heh" aria-pressed="false"><span class="nav-letter" lang="he">ה</span>Heh</button>
+</nav>
+<h1 id="title">Meet Alef</h1>
+<button id="letter" aria-label="Alef. Click me to hear what I sound like." aria-controls="question" aria-expanded="false"><span id="letter-symbol" class="hebrew" lang="he" dir="rtl">א</span></button>
+<p id="opening-status" role="status" aria-live="polite"></p>
 <p id="invitation">Click me to hear what I sound like.</p>
 <div id="question" hidden>
 <p id="message" aria-live="polite">I make no sound but I do take vowels. Want to try?</p>
@@ -21,13 +32,13 @@
 </div>
 <section id="vowels" aria-labelledby="vowel-heading" hidden>
 <h2 id="vowel-heading" tabindex="-1">Give Alef a vowel.</h2>
-<p class="hint">Click an Alef to hear its sound.</p>
+<p id="vowel-invitation" class="hint">Click an Alef to hear its sound.</p>
 <div class="cards">
 <button class="vowel" data-sound="ah" data-name="Kamatz" aria-label="Alef with Kamatz: ah"><span class="hebrew" lang="he" dir="rtl">אָ</span><span class="name">Kamatz</span><span class="sound">ah</span></button>
 <button class="vowel" data-sound="ah" data-name="Patach" aria-label="Alef with Patach: ah"><span class="hebrew" lang="he" dir="rtl">אַ</span><span class="name">Patach</span><span class="sound">ah</span></button>
 <button class="vowel" data-sound="eh" data-name="Segol" aria-label="Alef with Segol: eh"><span class="hebrew" lang="he" dir="rtl">אֶ</span><span class="name">Segol</span><span class="sound">eh</span></button>
 </div>
-<p class="hint">Kamatz and Patach both say “ah” here. Segol says “eh,” as in “bed.”</p>
+<p id="vowel-note" class="hint">Kamatz and Patach both say “ah” here. Segol says “eh,” as in “bed.”</p>
 <p id="status" role="status" aria-live="polite"></p>
 <button id="reset">Start again</button>
 </section>
@@ -35,15 +46,71 @@
 <script>
 const el=id=>document.getElementById(id);
 const cards=[...document.querySelectorAll('.vowel')];
-const sounds={ah:new Audio('audio/ah.wav'),eh:new Audio('audio/eh.wav')};
-let playId=0;
-function stopSound(){playId++;Object.values(sounds).forEach(audio=>{audio.pause();audio.currentTime=0;});cards.forEach(card=>card.classList.remove('playing'));}
-function reset(){stopSound();el('question').hidden=true;el('vowels').hidden=true;el('invitation').hidden=false;el('alef').setAttribute('aria-expanded','false');el('status').textContent='';}
-el('alef').addEventListener('click',()=>{stopSound();el('invitation').hidden=true;el('question').hidden=false;el('vowels').hidden=true;el('alef').setAttribute('aria-expanded','true');el('yes').focus();});
-el('yes').addEventListener('click',()=>{el('question').hidden=true;el('vowels').hidden=false;el('vowel-heading').focus();});
-el('no').addEventListener('click',()=>{reset();el('alef').focus();});
-el('reset').addEventListener('click',()=>{reset();el('alef').focus();});
-cards.forEach(card=>card.addEventListener('click',async()=>{stopSound();const id=playId;const audio=sounds[card.dataset.sound];card.classList.add('playing');el('status').textContent=`${card.dataset.name}: ${card.dataset.sound}.`;audio.onended=()=>{if(id===playId)card.classList.remove('playing');};try{await audio.play();}catch(error){if(id!==playId)return;card.classList.remove('playing');el('status').textContent='The sound could not play. Click the Alef to try again.';}}));
+const navigation=[...document.querySelectorAll('[data-letter]')];
+const letters={
+  alef:{name:'Alef',symbol:'א',base:null,sound:'',ah:'ah',eh:'eh'},
+  bet:{name:'Bet',symbol:'בּ',base:'b',sound:'b',ah:'bah',eh:'beh'},
+  vet:{name:'Vet',symbol:'ב',base:'v',sound:'v',ah:'vah',eh:'veh'},
+  gimel:{name:'Gimel',symbol:'ג',base:'g',sound:'g',ah:'gah',eh:'geh'},
+  daled:{name:'Daled',symbol:'ד',base:'d',sound:'d',ah:'dah',eh:'deh'},
+  heh:{name:'Heh',symbol:'ה',base:'h',sound:'h',ah:'hah',eh:'heh'}
+};
+const vowelMarks=['ָ','ַ','ֶ'];
+const vowelNames=['Kamatz','Patach','Segol'];
+const sounds={};
+let selected='alef',playId=0;
+function stopSound(){
+  playId++;
+  Object.values(sounds).forEach(audio=>{audio.pause();audio.currentTime=0;});
+  [...cards,el('letter')].forEach(button=>button.classList.remove('playing'));
+}
+async function playSound(key,button,status,label){
+  stopSound();
+  const id=playId;
+  const audio=sounds[key]??=new Audio(`audio/${key}.wav`);
+  button.classList.add('playing');
+  status.textContent=label;
+  audio.onended=()=>{if(id===playId)button.classList.remove('playing');};
+  try{await audio.play();}
+  catch(error){if(id!==playId)return;button.classList.remove('playing');status.textContent='The sound could not play. Click the letter to try again.';}
+}
+function reset(){
+  stopSound();el('question').hidden=true;el('vowels').hidden=true;el('invitation').hidden=false;
+  el('letter').setAttribute('aria-expanded','false');el('status').textContent='';el('opening-status').textContent='';
+}
+function selectLetter(key){
+  selected=key;reset();const letter=letters[key];
+  el('title').textContent=`Meet ${letter.name}`;
+  el('letter-symbol').textContent=letter.symbol;
+  el('letter').setAttribute('aria-label',`${letter.name}. Click me to hear what I sound like.`);
+  el('message').textContent=key==='alef'?'I make no sound but I do take vowels. Want to try?':`I make the “${letter.sound}” sound, and I take vowels too. Want to try?`;
+  el('vowel-heading').textContent=`Give ${letter.name} a vowel.`;
+  el('vowel-invitation').textContent=`Click ${letter.name==='Alef'?'an':'a'} ${letter.name} to hear its sound.`;
+  el('vowel-note').textContent=key==='alef'?'Kamatz and Patach both say “ah” here. Segol says “eh,” as in “bed.”':`Kamatz and Patach both make “${letter.ah}” with ${letter.name}. Segol makes “${letter.eh}.”`;
+  navigation.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.letter===key)));
+  cards.forEach((card,index)=>{
+    const sound=index===2?letter.eh:letter.ah;
+    card.dataset.sound=sound;card.dataset.name=vowelNames[index];
+    card.querySelector('.hebrew').textContent=letter.symbol+vowelMarks[index];
+    card.querySelector('.sound').textContent=sound;
+    card.setAttribute('aria-label',`${letter.name} with ${vowelNames[index]}: ${sound}`);
+  });
+}
+navigation.forEach(button=>button.addEventListener('click',()=>selectLetter(button.dataset.letter)));
+el('letter').addEventListener('click',()=>{
+  const letter=letters[selected];
+  stopSound();el('invitation').hidden=true;el('question').hidden=false;el('vowels').hidden=true;
+  el('letter').setAttribute('aria-expanded','true');
+  el('status').textContent='';
+  if(letter.base)playSound(letter.base,el('letter'),el('opening-status'),`${letter.name}: ${letter.sound}.`);
+  else el('opening-status').textContent='';
+  el('yes').focus();
+});
+el('yes').addEventListener('click',()=>{stopSound();el('question').hidden=true;el('vowels').hidden=false;el('vowel-heading').focus();});
+el('no').addEventListener('click',()=>{reset();el('letter').focus();});
+el('reset').addEventListener('click',()=>{reset();el('letter').focus();});
+cards.forEach(card=>card.addEventListener('click',()=>playSound(card.dataset.sound,card,el('status'),`${card.dataset.name}: ${card.dataset.sound}.`)));
+selectLetter('alef');
 </script>
 </body>
 </html>
